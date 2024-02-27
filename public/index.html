@@ -1,20 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/styles.css" />
-  <title>API-Films</title>
+  <title>Documentation API Films</title>
 </head>
 
 <body>
   <header>
-    <h3>API </h3>
+    <h1>API Films - Documentation</h1>
+    <nav>
+      <a href="https://github.com/WEB2295566/API-Films" target="_blank">GitHub</a>
+    </nav>
   </header>
-  <h1>DOCUMENTATION DE L'API</h1>
-  <div><a href="http://localhost:3301/api/films/">Tous les films</a></div>
 
+  <main>
+    <section>
+      <p>Cette API permet d'afficher, d'ajouter, de modifier et de supprimer des films de la base de données. Les routes
+        sont accessibles à partir de l'URL suivante : <br>
+        <a href="https://api-films-bbmz.onrender.com/api/films/"
+          target="_blank">https://api-films-bbmz.onrender.com/api/films/</a>
+      </p>
+    </section>
+
+    <hr>
+
+    <section id="routes">
+      <h2>Routes</h2>
+      <article>
+        <h3>Récupérer la liste de tous les films</h3>
+        <p>GET api/films/</p>
+        <p><a href="https://api-films-bbmz.onrender.com/api/films/"
+            target="_blank">https://api-films-bbmz.onrender.com/api/films/</a>
+        </p>
+        <h4>Paramètres possibles</h4>
+        <p><a href="https://api-films-bbmz.onrender.com/api/films?tri=realisation&ordre=asc"
+            target="_blank">https://api-films-bbmz.onrender.com/api/films?tri=realisation&ordre=asc</a>
+        </p>
+        <div>
+          <strong>Tri</strong>
+          <ul>
+            <li>titre</li>
+            <li>annee</li>
+            <li>realisation</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Ordre</strong>
+          <ul>
+            <li>asc</li>
+            <li>desc</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <h3>Récupérer un film spécifique</h3>
+        <p>GET api/films/{id}</p>
+        <p><a href="https://api-films-bbmz.onrender.com/api/films/p9ruH1HhIGni7pNBB6Gv"
+            target="_blank">https://api-films-bbmz.onrender.com/api/films/p9ruH1HhIGni7pNBB6Gv</a>
+        </p>
+        <p>Paramètre requis : id (l'identifiant du film à récupérer).</p>
+      </article>
+
+      <article>
+        <h3>Ajouter un nouveau film</h3>
+        <p>POST api/films</p>
+        <p>https://api-films-bbmz.onrender.com/api/films/</p>
+        <pre><code>{
+    "titre": "Titre du film",
+    "description": "Description du film",
+    "annee": 2024,
+    "realisation": "Nom du réalisateur",
+    "genre": ["Genre 1", "Genre 2"],
+    "titreVignette": "Titre de la vignette"
+}</code></pre>
+      </article>
+
+      <article>
+        <h3>Modifier un film existant</h3>
+        <p>PUT api/films/{id}</p>
+        <p><a
+            href="https://api-films-bbmz.onrender.com/api/films/{id}">https://api-films-bbmz.onrender.com/api/films/{id}</a>
+        </p>
+        <pre><code>{
+    "titre": "Titre du film",
+    "description": "Description du film",
+    "annee": 2024,
+    "realisation": "Nom du réalisateur",
+    "genre": ["Genre 1", "Genre 2"],
+    "titreVignette": "Titre de la vignette"
+}</code></pre>
+      </article>
+
+      <article>
+        <h3>Supprimer un film</h3>
+        <p>DELETE /api/films/{id}</p>
+        <p><a
+            href="https://api-films-bbmz.onrender.com/api/films/{id}">https://api-films-bbmz.onrender.com/api/films/{id}</a>
+        </p>
+        <p>Paramètre requis : id (l'identifiant du film à supprimer).</p>
+      </article>
+    </section>
+
+    <hr>
+
+    <section id="utilisateurs">
+      <h2>Routes pour les utilisateurs</h2>
+      <article>
+        <h3>Inscription d'un nouvel utilisateur</h3>
+        <p>POST /api/utilisateurs/inscription</p>
+        <p><a
+            href="https://api-films-bbmz.onrender.com/api/utilisateurs/inscription">https://api-films-bbmz.onrender.com/api/utilisateurs/inscription</a>
+        </p>
+
+        <pre><code>{
+    "courriel": "test@test.com",
+    "mdp": "Ab1234!@hello"
+}</code></pre>
+        <p>Les critères de complexité pour le mot de passe sont détaillés ci-dessus.</p>
+        <p>
+          La validation du mot de passe exige qu'il soit long de 8 à 20 caractères et qu'il combine lettres (minuscules
+          et majuscules), chiffres, et symboles spéciaux. Cette règle garantit un niveau de sécurité élevé en rendant le
+          mot de passe complexe à deviner.</p>
+
+      </article>
+
+      <article>
+        <h3>Connexion d'un utilisateur</h3>
+        <p>POST api/utilisateurs/connexion</p>
+        <p><a
+            href="https://api-films-bbmz.onrender.com/api/utilisateurs/connexion">https://api-films-bbmz.onrender.com/api/utilisateurs/connexion</a>
+        </p>
+        <pre><code>{
+    "courriel": "test@test.com",
+    "mdp": "Ab1234!@hello"
+}</code></pre>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 API Films. Tous droits réservés.</p>
+  </footer>
 </body>
 
 </html>

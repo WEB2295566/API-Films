@@ -1,3 +1,56 @@
+/* assets/styles.css */
+
 body {
-  background-color: red;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+header,
+footer {
+  background: #0ca678;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+header nav a,
+main a {
+  color: #343a40;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #333;
+}
+
+pre {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+pre code {
+  font-family: monospace;
+}
+
+ul {
+  list-style-type: none;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+footer p {
+  margin: 0;
 }

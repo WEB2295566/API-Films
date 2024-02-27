@@ -3,6 +3,7 @@ const express = require("express");//Import du module Express
 const dotenv = require("dotenv");//Import du module (variables env)
 const fs = require("fs");//Import (file system)
 const path = require("path");//import path
+const cors = require("cors");
 const db = require("./config/db.js"); //base de donnée
 const { check, validationResult } = require("express-validator");// Importation des outils de validation de express-validator
 
@@ -18,6 +19,7 @@ const server = express();
 server.use(express.static(path.join(__dirname, "public")));
 
 //Middleware pour analyser les corps de requete JSON
+server.use(cors());
 server.use(express.json());
 
 

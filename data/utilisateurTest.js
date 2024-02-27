@@ -7,10 +7,12 @@ const donneesTest = [
         courriel: "admin@email.com",
         mdp: "Hello20!WW"
     },
+
     {
-        courriel: "elbez.anis@email.com",
-        mdp: "JamesTheKing"
+        courriel: "render.option@gmail.com",
+        mdp: "Hellogang!@u2"
     },
 
+
 ];
-module.exports = donneesTest;
+module.exports = utilisateurTest;
