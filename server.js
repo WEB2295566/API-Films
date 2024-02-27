@@ -16,10 +16,10 @@ const server = express();
 
 //Middlewares express.static sert les fichers statiques
 //!!Doit être avant les routes/points d'accès!!
+server.use(cors());
 server.use(express.static(path.join(__dirname, "public")));
 
 //Middleware pour analyser les corps de requete JSON
-server.use(cors());
 server.use(express.json());
 
 
@@ -44,7 +44,11 @@ server.get("/api/films", async (req, res) => {
     const films = [];
 
     filmsRef.forEach((doc) => {
-      films.push(doc.data());// Ajoute chaque film récupéré à la liste des films
+      const filmsAjouter = doc.data();
+      filmsAjouter.id = doc.id;
+
+      films.push(filmsAjouter);// Ajoute chaque film récupéré à la liste des films
+
     });
 
     res.statusCode = 200;// Réponse avec statut HTTP 200 OK
