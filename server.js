@@ -103,25 +103,27 @@ server.post("/api/films",
   });
 
 // Route PUT pour mettre à jour un film existant identifié par son ID .
+// ,
+//   [
+//     check('titre').trim().escape().notEmpty().withMessage('Le titre du film est requis.'),
+//     check('description').trim().escape().isLength({ min: 20 }).withMessage('La description doit comporter entre 20 et 150 caractères.'),
+//     check('annee').trim().escape().notEmpty().isNumeric().withMessage('L\'année doit être numérique.'),
+//     check('realisation').trim().escape().notEmpty().withMessage('Le nom du réalisateur est requis.'),
+//     check('titreVignette').trim().escape().notEmpty().withMessage('Le titre de la vignette est requis.')
+//   ],
 
 server.put("/api/films/:id",
-  [
-    check('titre').trim().escape().notEmpty().withMessage('Le titre du film est requis.'),
-    check('description').trim().escape().isLength({ min: 20 }).withMessage('La description doit comporter entre 20 et 150 caractères.'),
-    check('annee').trim().escape().notEmpty().isNumeric().withMessage('L\'année doit être numérique.'),
-    check('realisation').trim().escape().notEmpty().withMessage('Le nom du réalisateur est requis.'),
-    check('titreVignette').trim().escape().notEmpty().withMessage('Le titre de la vignette est requis.')
-  ],
 
   async (req, res) => {
+
     // Exécute la validation des champs et vérifie s'il y a des erreurs.
     const validation = validationResult(req);
     // Si des erreurs de validation sont trouvées, 
-    if (validation.errors.length > 0) {
-      //renvoie une réponse 400 (Bad Request).
-      res.statusCode = 400;
-      return res.json({ message: "Données non-conformes" });
-    }
+    // if (validation.errors.length > 0) {
+    //   //renvoie une réponse 400 (Bad Request).
+    //   res.statusCode = 400;
+    //   return res.json({ message: "Données non-conformes" });
+    // }
     try {
       // Récupère l'ID du film à partir de l'URL
       const id = req.params.id;
